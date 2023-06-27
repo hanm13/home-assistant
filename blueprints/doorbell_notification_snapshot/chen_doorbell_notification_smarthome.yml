@@ -29,7 +29,7 @@ blueprint:
       selector:
         device:
           integration: mobile_app
-          multiple: true
+          multiple: false
     is_ios:
       name: Is it an iOS device?
       description: Toggle if your selected device runs iOS, default is Android
