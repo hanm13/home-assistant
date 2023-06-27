@@ -89,4 +89,4 @@ action:
     {{ ios_data if is_ios else android_data }}'
   - service: notify.persistent_notification
     data:
-    message: <b>{{ notification_message }} ![Garage Motion]({{ snapshot_access_file_path }})
+      message: <b>{{ notification_message }} ![Garage Motion]({{ snapshot_access_file_path }})
