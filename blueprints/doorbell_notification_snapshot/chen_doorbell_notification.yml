@@ -59,6 +59,7 @@ blueprint:
 trigger:
   platform: state
   entity_id: !input motion_sensor
+  attribute: image_address
 variables:
   motion_sensor: !input motion_sensor
   motion_sensor_name: '{{ states[motion_sensor].name }}'
@@ -69,7 +70,7 @@ variables:
   notification_message: !input notification_message
   delay: !input delay
   snapshot_create_file_path: /config/www/tmp/snapshot_{{ states[camera].object_id
-    }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg
+    }}_{{ now().strftime("%Y.%m.%d-%H.%M.%S") }}.jpg
   snapshot_access_file_path: '{{ snapshot_create_file_path | replace(''/config/www'',''/local'')
     }}'
 action:
