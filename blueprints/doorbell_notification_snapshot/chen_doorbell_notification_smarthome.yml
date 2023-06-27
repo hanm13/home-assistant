@@ -1,14 +1,14 @@
 blueprint:
   name: Chen Doorbell smartphone notification and Snapshot
   description: 'This automation blueprint creates a camera snapshot if doorbell button
-    is pressed  and sends a notification to your phone with the picture.
+    is pressed  and sends a notification to your phone with the picture + home assistant if enabled.
 
     '
   domain: automation
   input:
     motion_sensor:
       name: Doorbell
-      description: The sensor wich triggers the snapshot creation
+      description: The sensor which triggers the snapshot creation
       selector:
         entity:
           domain:
@@ -33,6 +33,18 @@ blueprint:
     is_ios:
       name: Is it an iOS device?
       description: Toggle if your selected device runs iOS, default is Android
+      selector:
+        boolean: {}
+      default: false
+    enable_homeassistant_notification:
+      name: Enable homeassistant notification?
+      description: Enable homeassistant notification?
+      selector:
+        boolean: {}
+      default: false
+    enable_smartphone_notification:
+      name: Enable smartphone notification?
+      description: Enable smartphone notification?
       selector:
         boolean: {}
       default: false
@@ -75,6 +87,7 @@ variables:
 action:
 - delay: '{{ delay }}'
 - service: notify.persistent_notification
+  enabled: !input enable_homeassistant_notification
   data:
     message: <b>{{ notification_message }} ![Garage Motion]({{ snapshot_access_file_path }})
 - service: camera.snapshot
@@ -82,6 +95,7 @@ action:
   data:
     filename: '{{ snapshot_create_file_path }}'
 - device_id: !input notify_device
+  enabled: !input enable_smartphone_notification
   domain: mobile_app
   type: notify
   title: '{{ notification_title }}'
