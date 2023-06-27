@@ -1,5 +1,5 @@
 blueprint:
-  name: Chen Doorbell notification and Snapshot
+  name: Chen Doorbell smartphone notification and Snapshot
   description: 'This automation blueprint creates a camera snapshot if doorbell button
     is pressed  and sends a notification to your phone with the picture.
 
@@ -29,7 +29,7 @@ blueprint:
       selector:
         device:
           integration: mobile_app
-          multiple: false
+          multiple: true
     is_ios:
       name: Is it an iOS device?
       description: Toggle if your selected device runs iOS, default is Android
