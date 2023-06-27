@@ -8,7 +8,7 @@ blueprint:
   input:
     motion_sensor:
       name: Doorbell
-      description: The sensor wich triggers the snapshot creation
+      description: The sensor which triggers the snapshot creation
       selector:
         entity:
           domain:
@@ -55,7 +55,7 @@ blueprint:
           unit_of_measurement: seconds
           mode: slider
           step: 1.0
-  source_url: https://github.com/VanadiumJade/doorbell_notifiy_unifi_protect_snapshot/blob/82ede4a024419a89cba7158d7af66c5d7768cae9/blueprint/unifi_protect_doorbell_notification_snapshot_v12.yaml
+  source_url: https://github.com/hanm13/home-assistant/blob/main/blueprints/doorbell_notification_snapshot/chen_doorbell_notification.yml
 trigger:
   platform: state
   entity_id: !input motion_sensor
@@ -68,7 +68,7 @@ variables:
   notification_title: !input notification_title
   notification_message: !input notification_message
   delay: !input delay
-  snapshot_create_file_path: /config/www/tmp/snapshot_{{ now().strftime("%Y%m%d-%H%M%S") }}_{{ states[camera]_.object_id }}.jpg
+  snapshot_create_file_path: /config/www/tmp/snapshot_{{ states[camera]_.object_id }}.jpg
   snapshot_access_file_path: '{{ snapshot_create_file_path | replace(''/config/www'',''/local'')
     }}'
 action:
