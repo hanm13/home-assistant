@@ -77,6 +77,8 @@ variables:
   camera: !input camera
   notify_device: !input notify_device
   is_ios: !input is_ios
+  enable_homeassistant_notification: !input enable_homeassistant_notification
+  enable_smartphone_notification: !input enable_smartphone_notification
   notification_title: !input notification_title
   notification_message: !input notification_message
   delay: !input delay
