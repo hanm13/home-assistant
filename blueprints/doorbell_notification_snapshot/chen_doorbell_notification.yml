@@ -1,5 +1,5 @@
 blueprint:
-  name: v12 Send a camera snapshot when doorbell button is pressed
+  name: Send a camera snapshot when doorbell button is pressed
   description: 'This automation blueprint creates a camera snapshot if doorbell button
     is pressed  and sends a notification to your phone with the picture.
 
