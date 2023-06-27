@@ -59,7 +59,6 @@ blueprint:
 trigger:
   platform: state
   entity_id: !input motion_sensor
-  attribute: image_address
 variables:
   motion_sensor: !input motion_sensor
   motion_sensor_name: '{{ states[motion_sensor].name }}'
