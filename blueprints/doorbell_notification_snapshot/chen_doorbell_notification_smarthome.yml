@@ -91,7 +91,7 @@ action:
 - service: notify.persistent_notification
   enabled: !input enable_homeassistant_notification
   data:
-    message: <b>{{ notification_message }} ![Garage Motion]({{ snapshot_access_file_path }})
+    message: <b>{{ notification_message }} ![Xiaomi door bell image]({{ snapshot_access_file_path }})
 - service: camera.snapshot
   entity_id: !input camera
   data:
