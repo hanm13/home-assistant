@@ -82,9 +82,9 @@ variables:
   notification_title: !input notification_title
   notification_message: !input notification_message
   delay: !input delay
-  snapshot_create_file_path: /media/local/door_bell_images/snapshot_{{ states[camera].object_id
+  snapshot_create_file_path: /config/media/images/door_bell_images/snapshot_{{ states[camera].object_id
     }}_{{ now().strftime("%d.%m.%Y-%H.%M.%S.%f") }}.jpg
-  snapshot_access_file_path: /media/local/door_bell_images/snapshot_{{ states[camera].object_id
+  snapshot_access_file_path: /media/media/images/door_bell_images/snapshot_{{ states[camera].object_id
     }}_{{ now().strftime("%d.%m.%Y-%H.%M.%S.%f") }}.jpg
 action:
 - delay: '{{ delay }}'
