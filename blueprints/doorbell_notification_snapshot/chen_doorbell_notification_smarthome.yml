@@ -84,7 +84,7 @@ variables:
   delay: !input delay
   snapshot_create_file_path: /config/media/images/door_bell_images/snapshot_{{ states[camera].object_id
     }}_{{ now().strftime("%d.%m.%Y-%H.%M.%S.%f") }}.jpg
-  snapshot_access_file_path: /config/media/images/door_bell_images/snapshot_{{ states[camera].object_id
+  snapshot_access_file_path: media-source://media_source/media/images/door_bell_images/snapshot_{{ states[camera].object_id
     }}_{{ now().strftime("%d.%m.%Y-%H.%M.%S.%f") }}.jpg
 action:
 - delay: '{{ delay }}'
