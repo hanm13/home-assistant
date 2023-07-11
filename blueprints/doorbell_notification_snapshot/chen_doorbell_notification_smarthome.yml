@@ -42,6 +42,12 @@ blueprint:
       selector:
         boolean: {}
       default: false
+    enable_save_snapshot_to_camera_directory:
+      name: Enable Snapshot save?
+      description: Enable snapshot save to doorbell snapshots
+      selector:
+        boolean: {}
+      default: false
     enable_smartphone_notification:
       name: Enable smartphone notification?
       description: Enable smartphone notification?
@@ -78,6 +84,7 @@ variables:
   notify_device: !input notify_device
   is_ios: !input is_ios
   enable_homeassistant_notification: !input enable_homeassistant_notification
+  enable_save_snapshot_to_camera_directory: !input enable_save_snapshot_to_camera_directory
   enable_smartphone_notification: !input enable_smartphone_notification
   notification_title: !input notification_title
   notification_message: !input notification_message
@@ -92,6 +99,7 @@ action:
   data:
     message: <b>{{ notification_message }} ![Xiaomi door bell image]({{ snapshot_access_file_path }})
 - service: camera.snapshot
+  enabled: !input enable_homeassistant_notification
   entity_id: !input camera
   data:
     filename: '{{ snapshot_create_file_path }}'
@@ -105,3 +113,8 @@ action:
     "%s"} | format(snapshot_access_file_path) %} {% set ios_data = {"attachment":
     {"url": "%s", "content_type": "JPEG"}} | format(snapshot_access_file_path) %}
     {{ ios_data if is_ios else android_data }}'
+# - service: notify.mobile_app_livingroomtablet
+#   data:
+#   message: command_launch_app
+#   data:
+#   package_name: com.teslamotors.tesla
