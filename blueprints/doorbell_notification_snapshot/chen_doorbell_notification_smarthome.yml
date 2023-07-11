@@ -83,7 +83,8 @@ variables:
   notification_message: !input notification_message
   delay: !input delay
   snapshot_create_file_path: /config/www/tmp/doorbell_camera_{{ now().strftime("%d.%m.%Y-%H.%M.%S.%f") }}.jpg
-  snapshot_access_file_path: /config/www/tmp/doorbell_camera_{{ now().strftime("%d.%m.%Y-%H.%M.%S.%f") }}.jpg
+  snapshot_access_file_path: '{{ snapshot_create_file_path | replace(''/config/www'',''/local'')
+    }}'
 action:
 - delay: '{{ delay }}'
 - service: notify.persistent_notification
