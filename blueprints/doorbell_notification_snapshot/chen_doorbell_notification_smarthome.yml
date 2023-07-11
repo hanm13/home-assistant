@@ -82,8 +82,8 @@ variables:
   notification_title: !input notification_title
   notification_message: !input notification_message
   delay: !input delay
-  snapshot_create_file_path: /www/tmp/door_bell/{{ now().strftime("%d.%m.%Y-%H.%M.%S.%f") }}.jpg
-  snapshot_access_file_path: /www/tmp/door_bell/{{ now().strftime("%d.%m.%Y-%H.%M.%S.%f") }}.jpg
+  snapshot_create_file_path: /tmp/door_bell/{{ now().strftime("%d.%m.%Y-%H.%M.%S.%f") }}.jpg
+  snapshot_access_file_path: /tmp/door_bell/{{ now().strftime("%d.%m.%Y-%H.%M.%S.%f") }}.jpg
 action:
 - delay: '{{ delay }}'
 - service: notify.persistent_notification
