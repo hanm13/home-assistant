@@ -99,7 +99,7 @@ action:
   data:
     message: <b>{{ notification_message }} ![Xiaomi door bell image]({{ snapshot_access_file_path }})
 - service: camera.snapshot
-  enabled: !input enable_homeassistant_notification
+  enabled: !input enable_save_snapshot_to_camera_directory
   entity_id: !input camera
   data:
     filename: '{{ snapshot_create_file_path }}'
